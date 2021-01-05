@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+desktop_files="/usr/share/applications/*.desktop /usr/local/share/applications/*.desktop"
+
+declare -A execs
+names=()
+
+for i in $desktop_files; do
+    content=$(cat "$i")
+    entry_name=$(echo "$content" | sed -rn "s/^Name=([^$]*)$/\1/p")
+    exec_name=$(echo "$content" | sed -rn "s/^Exec=([^$]*)$/\1/p" | sed -r "s/%.//g")
+
+    execs["$entry_name"]="$exec_name"
+    names+="$entry_name\n"
+done
+
+echo ${execs["$(echo -e "$names" | head -c -1 | sort | dmenu $@)"]} | sh

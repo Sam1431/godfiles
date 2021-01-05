@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+dmenucmd=$(man -k . | cut -d ' ' -f 1,2 | dmenu $@ -p "$prompt:" -fn terminus-12 -h 30 -sb "#4d97ff" -nb "#000000" -sb "#4d97ff" -sf "#19262b" -o 0.9 -y 35 -w 900 -x 235)
+[[ -z $dmenucmd ]] && exit
+dmenucmd=$(echo $dmenucmd | tr -d '()' | awk '{print $2, " ", $1}')
+echo $dmenucmd

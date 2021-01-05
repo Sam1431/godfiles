@@ -1,0 +1,49 @@
+# Example dmenurc file
+
+# Comments:
+# A comment will always begin with a `#` symbol,
+; or a semicolon.
+# Comments must begin on their own line - any comments
+# at the end of a configuration option will cause errors.
+
+# Options
+# Configuration options are in the format
+#
+#     Key = Value
+#
+# Trailing/leading whitespace has no effect on the
+# naming of the key, nor for the value.
+# To represent truth or falsity, you can use a
+# non-zero integer, or zero, respectively.
+
+# Window options
+TopBar        = 1
+CenterX       = 1
+CenterY       = 1
+DynamicHeight = 1
+XPosition     = -1
+YPosition     = -1
+WindowWidth   = 550
+WindowName    = dmenu
+WindowClass   =
+Lines         = 10
+LineHeight    = 24
+Screen        = 0 
+
+# Appearance
+# (Colours can be either a name 'black', or a
+# hex colour code '#ff0000')
+NormalBackground   = #D0D0D0
+NormalForeground   = #404040
+SelectedBackground = #101010
+SelectedForeground = #D0D0D0
+UnderlineHeight    = 3
+UnderlineColour    = #404040
+WindowOpacity      = 1.0
+DimOpacity         = 0.6
+DimColour          = #101010
+Font               = monospace:size=9
+Prompt             = >>>
+EmptyText          = (No results)
+BorderColour       = #D0D0D0
+BorderWidth        = 3

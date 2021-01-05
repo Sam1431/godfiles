@@ -1,0 +1,20 @@
+#!/bin/bash
+#  ____ _____ 
+# |  _ \_   _|  Derek Taylor (DistroTube)
+# | | | || |    http://www.youtube.com/c/DistroTube
+# | |_| || |    http://www.gitlab.com/dwt1/ 
+# |____/ |_| 
+#
+# Dmenu script for launching surfaw, a command line search utility.
+
+cmd="dmenu -i -h 30 -sb "#4d97ff" -nb "#000000" -sb "#ffe396" -sf "#19262b" -uh 2 -uc "#d4bd7d" -o 0.9 -y 35 -w 900 -centerx -fn terminus-12 " 
+
+while [ -z "$engine" ]; do
+engine=$(sr -elvi | gawk '{if (NR!=1) { print $1 }}' | $cmd -p "Search engine?") || exit
+done
+
+while [ -z "$query" ]; do
+query=$(echo "" | $cmd -p "Searching $engine") || exit
+done
+
+firefox "$engine""$query"

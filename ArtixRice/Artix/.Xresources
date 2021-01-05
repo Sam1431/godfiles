@@ -1,0 +1,77 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:Xos4 Terminus:size=12, \
+            xft:Inconsolata Nerd Font Mono:size=15, 
+            xft:Monospace:style=Medium:size=12   
+URxvt.saveLines: 2000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.colorUL: #4682B4
+!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller: C-j
+URxvt.resize-font.bigger:  C-k
+!! Matcher
+URxvt.url-launcher:	urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.matcher.button: 1
+!!clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt*depth: 32
+URxvt.letterSpace: 0
+
+! Dracula Xresources palette
+!! COLORS
+
+! special
+URxvt*foreground:   #D3D3D3
+URxvt*background:   [65]#000000
+URxvt*cursorColor:  #ffff00
+
+! black
+*.color0:      #021D22
+*.color8:      #032429
+! red
+*.color1:      #062F36
+*.color9:      #203537
+! green
+*.color2:      #043B45
+*.color10:     #283E42
+! yellow
+*.color3:      #074854
+*.color11:     #0D5C6A
+! blue
+*.color4:      #4F696D
+*.color12:     #65817F
+! magenta
+*.color5:      #08758A
+*.color13:     #5C7D82
+! cyan
+*.color6:      #66bfcb
+*.color14:     #3CB4C0
+! white
+*.color7:      #9DC8CC
+*.color15:     #3CB4C0
+
+URxvt.internalBorder:  25
+URxvt.externalBorder:  25
+
+urxvt.perl-ext-common: default,resize-font

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+
+:root {
+    --background: #111927;
+    --syn: #017ff2;
+    --name: #017ff2;
+    --value: #017ff2;
+    --prompt: #12a0a1;
+}
+
+::-moz-selection { 
+    color: white;
+    background: var(--name);
+}
+  
+::selection {
+    color: white;
+    background: var(--name);
+}
+
+html,body {
+    font-family: 'Iosevka ss04', monospace;
+    background: var(--background);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+.prompt {
+    color: white;
+    background: var(--prompt);
+    padding: 0px 10px;
+    margin-right: 10px;
+}
+
+.prompt-text {
+    color: var(--prompt);
+}
+
+.syn {
+    color: var(--syn);
+}
+
+.name {
+    color: var(--name);
+}
+
+.value {
+    color: var(--value);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover:after {
+    content: "";
+}
+
+form {
+    display: inline-block;
+    width: 40%;
+    box-sizing: border-box;
+    border: 1px solid var(--name);
+    padding: 20px;
+}
+
+label {
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="search"] {
+    background: transparent;
+    border: 1px solid var(--name);
+    padding: 10px 20px;
+    width: 100%;
+    color: var(--name);
+    font-weight: 500;
+    font-size: 0.8em;
+    font-family: 'Iosevka ss04', monospace;
+}
+
+input[type="search"]:hover,
+input[type="search"]:active,
+input[type="search"]:focus {
+    border: 1px solid var(--name);
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: 'Iosevka 2204', monospace;
+}
+
+.search-hint {
+    font-size: 0.5em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+
+@media screen and (max-width: 1500px) {
+    body {
+        font-size: 1em;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .container {
+        padding: 25px 50px;
+    }
+}

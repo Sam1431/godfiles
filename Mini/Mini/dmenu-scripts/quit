@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+menu_list="Cancel\nSuspend-Sys\nShutdown-Sys\nReboot-Sys\nLock-Sys"
+sel=$(echo -e "$menu_list" | dmenu $@ -i -h 30 -sb "#4d97ff" -nb "#000000" -sb "#96ffcc" -sf "#19262b" -o 0.9 -y 35 -w 900 -centerx -uh 2 -uc "#73c99f" -p Robin::SysMenu_Options:: -fn terminus-12)
+
+case "$sel" in
+    Cancel)   exit ;;
+    Suspend-Sys)  systemctl suspend & ;;
+    Shutdown-Sys) systemctl poweroff & ;;
+    Reboot-Sys)   systemctl reboot & ;;
+    Lock-Sys)     slock & ;;
+esac
