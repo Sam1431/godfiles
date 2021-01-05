@@ -1,0 +1,240 @@
+# KEY DEFINITIONS TO REMEMBER
+
+# $Mod = WINDOWS key or Super key or Mod4
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# KP_Enter = Keypad Enter
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
+#set Super key
+set $mod Mod4
+
+#This is setup for qwerty
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+#This is setup for azerty
+#set $up l
+#set $down k
+#set $left j
+#set $right m
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# toggle tiling / floating
+bindsym $mod+W floating toggle
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# start rofi small
+bindsym $mod+F12 exec --no-startup-id dmenu_recency -nb "#000000" -h 30 -p " chandra@gentoo :: " -nf "#bbb8b5" -sf "#000000" -sb "#d92121" -w 550 -x 410 -y 230 -o 0.9 -l 10 -uh 2 -uc "#900d1b"
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# kill focused window
+bindsym $mod+Shift+x kill
+bindsym $mod+x kill
+
+# orientation for new workspaces
+default_orientation horizontal
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+# Super + F in arcolinux is execute thunar
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# qwerty/azerty issue for letter z
+bindsym $mod+d exec dmenu_recency -x 420 -y 230 -h 30 -l 10 -w 550 -p 'Vishwa : AppMenu : ' &
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+
+# change focus between tiling / floating windows
+bindsym $mod+q focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+
+        # same bindings, but for the arrow keys
+bindsym $mod+mod1+Left        resize shrink width 10 px or 10 ppt
+bindsym $mod+mod1+Down        resize grow height 10 px or 10 ppt
+bindsym $mod+mod1+Up          resize shrink height 10 px or 10 ppt
+bindsym $mod+mod1+Right       resize grow width 10 px or 10 ppt
+
+#Gaps 
+# Settings for I3 next gap git
+# https://github.com/Airblader/i3/tree/gaps-next
+# delete or uncomment the following lines if you do not have it or do not
+# want it
+
+
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 5
+#smart_gaps on
+#smart_borders on
+
+#BASIC FUNCTIONALITY
+bindsym --release $mod+Escape exec xkill
+bindsym control+mod1+u exec --no-startup-id pavucontrol
+bindsym control+mod1+c exec --no-startup-id catfish;focus
+
+#Autostart
+# USER APPLICATIONS TO START AT BOOT
+
+#I3 bar transparency
+#exec_always --no-startup-id picom --opacity-rule '90:window_type = "dock" && class_g = "i3bar"'
+
+exec_always --no-startup-id picom
+
+# Autotiling
+exec_always --no-startup-id autotiling
+
+# TRAY APPLICATIONS
+
+#Authentication dialog
+exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
+#exec --no-startup-id blueberry-tray
+#exec_always --no-startup-id nm-applet
+#exec_always --no-startup-id numlockx on
+#exec --no-startup-id dropbox start
+#exec --no-startup-id insync start
+#exec --no-startup-id pasystray
+exec --no-startup-id volumeicon
+#exec --no-startup-id variety
+#exec --no-startup-id xfce4-clipman
+#exec --no-startup-id conky -c ~/.config/i3/system-overview
+exec_always --no-startup-id alternating_layouts.py &
+exec_always --no-startup-id ~/.fehbg
+#exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec_always --no-startup-id pkill ksuperkey &
+exec_always --no-startup-id ksuperkey -e 'Super_L=Super_L|d' &
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+#basic keybindings
+bindsym $mod+Shift+Return exec --no-startup-id alacritty;focus
+
+# bar toggle, hide or show
+bindsym $mod+b bar mode toggle
+
+# Border control
+hide_edge_borders both
+bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+
+#changing border style
+#super+t in arcolinux is starting terminal
+bindsym $mod+t border normal
+bindsym $mod+y border 1pixel
+bindsym $mod+u border none
+
+
+#new_window pixel 1
+new_window normal
+#new_window none
+
+#new_float pixel 1
+new_float normal
+#new_float none
+
+bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#################                          bar appearance                                           #################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+
+    ##START THEMING WM
+    #Theme name : ArcoLinux Default
+
+    # Window color settings
+    # class                 border  backgr. text    indicator
+    client.focused          #900d1b #900d1b #900d1b #900d1b
+    client.unfocused        #4C566A #2E3440 #aaaaaa #222222
+    client.focused_inactive #4C566A #2E3440 #a9a9a9 #222222
+    client.placeholder      #4C566A #2E3440 #aaaaaa #222222
+    client.urgent           #4C566A #2E3440 #f7f7f7 #d42121
+
+    client.background       #242424
+
+    ##STOP THEMING WM
+
+
+
